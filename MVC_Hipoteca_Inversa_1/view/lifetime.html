@@ -1,0 +1,32 @@
+{% extends "layout_login.html" %}
+
+{% block content %}
+<div class="main-container">
+    <div class="lifetime-container">
+        <h2>Calcular Hipoteca Inversa Vitalicia</h2>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='content/register.css') }}" />
+
+        {% if error %}
+        <div class="message-box">
+            <h3>{{ error }}</h3>
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('hi_lifetime_cal') }}" method="POST" class="centered-form">
+            <div class="form-group">
+                <label for="total_amount">Monto Total:</label>
+                <input type="number" name="total_amount" id="total_amount" class="form-control" required min="52000000">
+            </div>
+            <div class="form-group">
+                <label for="interest">Interes Anual (%):</label>
+                <input type="number" name="interest" id="interest" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="interest_housing">Interes Vivienda (%):</label>
+                <input type="number" name="interest_housing" id="interest_housing" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular Hipoteca</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
